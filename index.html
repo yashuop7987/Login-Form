@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            border: 1px solid black;
+            width: 300px;
+            height: auto;
+            margin: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+        }
+        .heading{
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        input{
+            border-radius: 5px;
+            height: 25px;
+            width: 200px;
+        }
+        button{
+            cursor: pointer;
+            background-color: blue;
+            color: white ;
+            padding: 10px 5px 10px 5px;
+            border-radius: 15px;
+            font-size: medium;
+            font-weight: bold;
+        }
+        button:hover{
+            background-color: lightskyblue;
+        }
+
+     a{
+        text-decoration: none;
+        color: blue;
+     }
+
+    </style>
+</head> 
+<body>
+    <h1 class="heading">Login Form</h1>
+    <div class="container">
+       <form action="" >
+        Username:<input type="text" name="username" id="username" placeholder="username" required="username"><br><br>
+        password:<input type="password" name="password" id="password" placeholder="password" required="password" minlength=10><br><br>
+        <button type="submit">Login</button>
+        new account? <a href="signup.html">Sign up</a>
+       </form>
+    </div>
+    <script>
+        document.querySelector("form").addEventListener("submit",function(e){
+            e.preventDefault();
+            let username=document.getElementById("username").value;
+            let password=document.getElementById("password").value;
+            let storedUsername=localStorage.getItem("name");
+            let storedPassword=localStorage.getItem("password");
+
+            if(username===storedUsername && password===storedPassword){
+                alert("Login successful");
+            }else{
+                alert("Invalid credentials");
+            }
+        });
+    </script>
+</body>
+</html>
